@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"
+/>
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX'); // replace with your Measurement ID
+</script>
+</head>
+<body>
+    <header class="site-header">
+        <h1>Hello, I’m <span id="student-name">Kolby Sawyer</span></h1>
+        <p class="tagline">Aspiring business analyst in Supply Chain Management.</p>
+
+<!-- CTA now opens an email client -->
+<a
+href="mailto:kms60820@commonwealthu.edu?subject=Portfolio%20Inquiry&body=Hel
+lo%20—%20I%20found%20your%20portfolio%20and%20would%20like%20to%20conn
+ect."
+        id="cta-btn"
+        class="btn-primary"
+    >Contact Me</a>
+</header>
+
+<main>
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <ul class="cards">
+            <li class="card">
+                <h3>Market Analysis Visual</h3>
+                <p>Analytics visuals made with SAS Viya.</p>
+                <a href="./Sawyer Class Project Visual copy.pdf" class="view-project" data-project="Project
+One">View</a>
+        </li>
+        <li class="card">
+            <h3>Business Innovation Project</h3>
+            <p>Creation of a business and product.</p>
+            <a href="./BIC Infomercial Video copy.mp4" class="view-project" data-project="Project
+Two">View</a>
+            </li>
+        </ul>
+    </section>
+    
+    <section id="about" class="section">
+        <h2>About</h2>
+        <p>I’m learning HTML, CSS, JavaScript, and analytics to make
+better design decisions.</p>
+    </section>
+</main>
+
+    <footer class="site-footer">
+        <small>© <span id="year"></span> Kolby Sawyer</small>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
