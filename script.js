@@ -62,22 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- (Optional) Global outbound link tracking pattern ---
-  // Uncomment to track any external link click site-wide
-  /*
-  document.body.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href]');
-    if (!link) return;
-
-    const url = link.getAttribute('href');
-    const isExternal = /^https?:\/\//i.test(url) && !url.includes(location.hostname);
-
-    if (isExternal) {
-      sendEvent('click_outbound', {
-        link_url: url,
-        link_text: (link.textContent || '').trim().slice(0, 80)
-      });
-    }
-  }, { passive: true });
-  */
+  // Helper to send GA4 events safely
+function sendEvent(eventName, params = {}) {
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, params);
+  } else {
+    console.log('[GA4 pending]', eventName, params);
+  }
+}
+// CTA click event
+document.getElementById('cta-btn').addEventListener('cl
+ick', () => {
+  sendEvent('cta_click', { location: 'header', label:
+'Contact Me' });
+  alert('Thanks for reaching out!');
+});
+// Project view event
+document.querySelectorAll('.view-project').forEach(a =>
+{
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    const name = a.dataset.project;
+    sendEvent('project_view', { project_name: name });
+    alert(`Preview coming soon: ${name}`);
+  });
 });
